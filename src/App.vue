@@ -1,25 +1,35 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="container mt-2">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/" class="btn btn-dark mr-2">Home</RouterLink>
-        <RouterLink to="/about" class="btn btn-dark mr-2">About</RouterLink>
-        <RouterLink to="/grid" class="btn btn-dark mr-2">Grid</RouterLink>
-        <RouterLink to="/cards" class="btn btn-dark mr-2">Cards</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Currículum</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+        <div class="navbar-collapse" id="navbarNav">
+        <ul class="nav">
+          <li class="nav-item">
+            <RouterLink to="/" class="btn btn-dark mr-2">Home</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/about" class="btn btn-dark mr-2">About</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/grid" class="btn btn-dark mr-2">Grid</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/cards" class="btn btn-dark mr-2">Cards</RouterLink>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 
   <RouterView />
 </template>
-
-

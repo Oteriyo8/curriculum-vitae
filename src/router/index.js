@@ -45,6 +45,13 @@ const router = createRouter({
   
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/Cards.vue"),
+    },
+    {
+      path: "/sign-in",
+      name: "singin",
+  
+      component: () =>
+        import("../views/AccesoView.vue"),
     }
   ]
 })
