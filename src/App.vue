@@ -25,11 +25,19 @@ import HelloWorld from "@/components/HelloWorld.vue";
           <li class="nav-item">
             <RouterLink to="/cards" class="btn btn-dark mr-2">Cards</RouterLink>
           </li>
+          <li class="nav-item">
+            <button @click="userStore.logout">Logout</button>
+          </li>
         </ul>
         </div>
       </div>
     </nav>
   </div>
-
   <RouterView />
+
 </template>
+
+<!-- <script setup>
+import { useStoreUsers } from "./stores/users";
+const userStore = useStoreUsers()
+</script> -->

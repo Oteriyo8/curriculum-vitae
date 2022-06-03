@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword,signOut } from "firebase/auth";
+import router from "../router";
 
 export const useStoreUsers = defineStore("users", {
   state: () => {
@@ -21,6 +22,7 @@ export const useStoreUsers = defineStore("users", {
       logout( ) {
         signOut(auth).then(() => {
             this.user = null;
+            router.push('/sign-in');
             console.log(this.user)
           }).catch((error) => {
             // An error happened.
@@ -34,6 +36,7 @@ export const useStoreUsers = defineStore("users", {
           // Signed in, this. coge las variables que hay en el state
           this.user = userCredential.user;
           // ...
+          router.push('/');
           console.log(this.user)
         })
         .catch((error) => {
