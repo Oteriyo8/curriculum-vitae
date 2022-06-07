@@ -1,43 +1,29 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { useStoreUsers } from "./stores/users";
+import TheHeader from "./components/TheHeader.vue";
+
+const userStore = useStoreUsers()
+
+const almacen = useStoreUsers();
+almacen.logged();
+
 </script>
 
 <template>
-  <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Currículum</a>
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-        <div class="navbar-collapse" id="navbarNav">
-        <ul class="nav">
-          <li class="nav-item">
-            <RouterLink to="/" class="btn btn-dark mr-2">Home</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="/about" class="btn btn-dark mr-2">About</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="/grid" class="btn btn-dark mr-2">Grid</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="/cards" class="btn btn-dark mr-2">Cards</RouterLink>
-          </li>
-          <li class="nav-item">
-            <button @click="userStore.logout">Logout</button>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+<TheHeader :correo="almacen.getEmailUser" :logged="almacen.user?true:false"></TheHeader>
+  
   <RouterView />
 
 </template>
 
-<!-- <script setup>
-import { useStoreUsers } from "./stores/users";
-const userStore = useStoreUsers()
-</script> -->
+<style>
+@import '@/assets/base.css'
+
+/* #app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  
+} */
+</style>

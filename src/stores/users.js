@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword,signOut } from "firebase/auth";
+import { signInWithEmailAndPassword,signOut, onAuthStateChanged } from "firebase/auth";
 import router from "../router";
 
 export const useStoreUsers = defineStore("users", {
   state: () => {
     return {
       user: null,
+      errores: null
     };
   },
   getters: {
@@ -19,6 +20,16 @@ export const useStoreUsers = defineStore("users", {
       }
   },
   actions: {
+    logged() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, ...
+          this.user = user;
+        } else {
+          this.user = null;
+        }
+      })
+    },
       logout( ) {
         signOut(auth).then(() => {
             this.user = null;
@@ -29,21 +40,12 @@ export const useStoreUsers = defineStore("users", {
             console.log(error)
           });
       },
-    signIn({ email, password }) {
+    async signIn({ email, password }) {
       //     const {email,password} = datos;
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in, this. coge las variables que hay en el state
-          this.user = userCredential.user;
-          // ...
-          router.push('/');
-          console.log(this.user)
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, "=>", errorMessage)
-        });
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      this.user = userCredential.user
+        
+     
     },
   },
 });

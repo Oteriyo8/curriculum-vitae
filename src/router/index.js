@@ -52,7 +52,14 @@ const router = createRouter({
   
       component: () =>
         import("../views/AccesoView.vue"),
-    }
+    },
+    {
+      path: "/datospersonales",
+      name: "DatosPersonales",
+  
+      component: () =>
+        import(/* webpackChunkName: "about" */ "../views/DatosPersonales.vue"),
+    },
   ]
 })
 
