@@ -44,11 +44,13 @@
           </div>
           <div v-show="mostrar">
             <a v-on:click="estudios(estudioss)" class="btn btn-primary mr-1"
-              >Estudios</a
-            >
+              >Estudios</a>
             <a v-on:click="habilidades(habilidadess)" class="btn btn-info"
-              >Habilidades</a
-            >
+              >Habilidades</a>
+              <a v-on:click="infoAdicional(infoAdicionales)" class="btn btn-info"
+              >Info Adicional</a>
+            <a v-on:click="experiencia(experiencias)" class="btn btn-info"
+              >Experiencias</a>
           </div>
         </div>
       </div>
@@ -105,6 +107,57 @@
           </p>
         </div>
       </div>
+      <div
+        v-if="mostrar & (infoAdicionales === true)"
+        class="card"
+        style="width: 18rem"
+      >
+        <img
+          class="card-img-top img-fluid"
+          src="../assets/negro.jpg"
+          alt="Card image cap"
+        />
+        <div class="text-center">
+          <img
+            class="img-fluid yoimagen rounded-circle img-thumbnail"
+            src="../assets/io2022.jpeg"
+            alt="Fabian :)"
+            height="100px"
+            width="100px"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Info Adicional</h5>
+          <p class="card-text">
+            aaa
+          </p>
+        </div>
+      </div><div
+        v-if="mostrar & (experiencias === true)"
+        class="card"
+        style="width: 18rem"
+      >
+        <img
+          class="card-img-top img-fluid"
+          src="../assets/negro.jpg"
+          alt="Card image cap"
+        />
+        <div class="text-center">
+          <img
+            class="img-fluid yoimagen rounded-circle img-thumbnail"
+            src="../assets/io2022.jpeg"
+            alt="Fabian :)"
+            height="100px"
+            width="100px"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Experiencias</h5>
+          <p class="card-text">
+            bbb
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -125,6 +178,8 @@ storeC.setDatosCurric();
 let mostrar = ref(null);
 let estudioss = ref(false);
 let habilidadess = ref(false);
+let infoAdicionales = ref(false);
+let experiencias = ref(false);
 
 const estudios = (e) => {
   if (e === false) {
@@ -142,6 +197,26 @@ const habilidades = (e) => {
     return;
   } else {
     habilidadess.value = false;
+    return;
+  }
+};
+
+const infoAdicional = (e) => {
+  if (e === false) {
+    infoAdicionales.value = true;
+    return;
+  } else {
+    infoAdicionales.value = false;
+    return;
+  }
+};
+
+  const experiencia = (e) => {
+  if (e === false) {
+    experiencias.value = true;
+    return;
+  } else {
+    experiencias.value = false;
     return;
   }
 };

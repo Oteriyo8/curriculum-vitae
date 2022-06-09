@@ -72,7 +72,7 @@ export const useStoreCurric = defineStore("idCurriculum", {
             return `${state.datosCurriculum[3].h1}\n ${state.datosCurriculum[3].h2}\n ${state.datosCurriculum[3].h3}\n ${state.datosCurriculum[3].h4}\n ${state.datosCurriculum[3].h5}`;
         },
         getEstudios(state) {
-            return `${state.datosCurriculum[4].curso1}\n ${state.datosCurriculum[4].curso2}\n ${state.datosCurriculum[4].curso3}\n ${state.datosCurriculum[4].curso4}`;
+            return `${state.datosCurriculum[5].e1}\n ${state.datosCurriculum[5].e2}\n`;
         }
   },
 });
