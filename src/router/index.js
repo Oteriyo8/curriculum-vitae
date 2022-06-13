@@ -7,11 +7,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Inicio'
+      }
     },
     {
       path: '/about',
       name: 'about',
+      meta: {
+        title: 'Acerca de '
+      },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -49,6 +55,9 @@ const router = createRouter({
     {
       path: "/sign-in",
       name: "singin",
+      meta: {
+        title: 'Acceso'
+      },
   
       component: () =>
         import("../views/AccesoView.vue"),
@@ -62,5 +71,10 @@ const router = createRouter({
     },
   ]
 })
+
+router.beforeEach((to,from,next) => {
+  window.document.title = to.meta.title?to.meta.tittle: 'Currículum';
+  next();
+ });
 
 export default router

@@ -2,6 +2,8 @@
   <div class="about container">
     <h1>This is an about page</h1>
     <img :src="url" alt="No hay imagen">
+    <h2>Cargar imagen</h2>
+    <input accept="image/*" type="file" @change="configurarSubida">
   </div>
     
 </template>
@@ -18,6 +20,10 @@ const cargarFoto = async () => {
 }
 
 cargarFoto();
+
+const configurarSubida = evento => {
+  console.log(evento.target.files[0])
+}
 </script>
 
 <style>
