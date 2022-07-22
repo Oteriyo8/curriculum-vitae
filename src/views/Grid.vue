@@ -1,24 +1,36 @@
 <template>
-<div class="mt-5">
-    <b-row>
-        <b-col cols="12" md="6" lg="4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex pariatur molestiae facere mollitia illum vel delectus reiciendis placeat? Maxime numquam similique magni. Sequi commodi sit adipisci ab? Cupiditate, veritatis obcaecati!</p>
-        </b-col>
-        <b-col cols="12" md="6" lg="8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex pariatur molestiae facere mollitia illum vel delectus reiciendis placeat? Maxime numquam similique magni. Sequi commodi sit adipisci ab? Cupiditate, veritatis obcaecati!</p>
-        </b-col>
-    </b-row>
-    <b-row>
-        <b-col cols="12" md="6" lg="4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex pariatur molestiae facere mollitia illum vel delectus reiciendis placeat? Maxime numquam similique magni. Sequi commodi sit adipisci ab? Cupiditate, veritatis obcaecati!</p>
-        </b-col>
-        <b-col cols="12" md="6" lg="8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex pariatur molestiae facere mollitia illum vel delectus reiciendis placeat? Maxime numquam similique magni. Sequi commodi sit adipisci ab? Cupiditate, veritatis obcaecati!</p>
-        </b-col>
-    </b-row>
-</div>
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-2">
+				{{ store.getNombreCompleto }}
+			</div>
+			<div class="col-md-auto">
+				aaa
+			</div>
+			<div class="col col-lg-2">3 of 3</div>
+		</div>
+		<div class="row">
+			<div class="col">1 of 3</div>
+			<div class="col-md-auto">
+				{{ storeC.getEstudios }}
+			</div>
+			<div class="col col-lg-2">
+				{{ storeC.getHabilidades }}
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup>
+// Librerías
+import { ref } from "vue";
+import { useStorePerfil } from "../stores/perfil";
+import { useStoreCurric } from "../stores/curriculum";
+// Arrancamos store
+const store = useStorePerfil();
+const storeC = useStoreCurric();
 
+// Cargamos datos
+store.setDatosPersonales();
+storeC.setDatosCurric();
 </script>

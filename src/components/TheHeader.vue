@@ -8,7 +8,6 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Currículum</a>
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
@@ -24,13 +23,10 @@
             <RouterLink to="/grid" class="btn btn-dark mr-2">Grid</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/cards" class="btn btn-dark mr-2">Cards</RouterLink>
-          </li>
-          <li class="nav-item">
             <RouterLink to="/datospersonales" class="btn btn-dark mr-2">Datos personales</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/sign-in">Logout</RouterLink>
+            <RouterLink to="/sign-in" class="btn btn-dark mr-2">Login</RouterLink>
           </li>
         </ul>
         </div>

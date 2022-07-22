@@ -46,13 +46,6 @@ const router = createRouter({
     //     import(/* webpackChunkName: "about" */ "../views/Form.vue"),
     // },
     {
-      path: "/cards",
-      name: "Cards",
-  
-      component: () =>
-        import(/* webpackChunkName: "about" */ "../views/Cards.vue"),
-    },
-    {
       path: "/sign-in",
       name: "singin",
       meta: {

@@ -3,7 +3,7 @@ import db from '../hook/firebase.config';
 import { collection, doc, query, getDocs } from '@firebase/firestore';
 
 export const useStoreDatosPersonales = defineStore(
-    "datosPersonales",
+    "datos-personales",
     {
         state: () => {
             return {
@@ -16,7 +16,7 @@ export const useStoreDatosPersonales = defineStore(
              * Función que coge datos de firestore y los almacena en un array de datos
              */
             async setDatosCurriculum() {
-                const curriculumRef = collection(db, 'curriculum');
+                const curriculumRef = collection(db, 'diego-curriculum');
                 const consulta = query(curriculumRef);
                 const resultadoConsulta = await getDocs(consulta);
                 resultadoConsulta.forEach((fila) => {

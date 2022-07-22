@@ -34,7 +34,7 @@ import { getURL } from '../firebase.cloud.storage';
 const store = useStoreUsers();
 
 const form = reactive({
-    email: 'fruicou.sansus3@gmail.com',
+    email: 'dotelod.sansus3@gmail.com',
     password: '12345a'
 });
 
